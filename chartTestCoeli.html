@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+  <head>
+    <title>Infront WTK - Chart</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto:light,regular,thin,italic,bold"
+      rel="stylesheet"
+      title="roboto"
+    />
+
+    <!-- Favicons -->
+
+    <!-- Infront WTK CSS -->
+    <link
+      rel="stylesheet"
+      href="InfrontFramework-latest.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="theme.css"
+    />
+
+    <!-- External javascript dependencies -->
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://code.highcharts.com/stock/5.0.14/highstock.src.js"
+    ></script>
+
+    <!-- Infront WTK -->
+    <script type="text/javascript" src="infrontUI-latest.c.js"></script>
+
+    <!---TEMP Chart-Indicator Indicator-scripts-->
+    <!-- <script type="text/javascript" src="lib/indicators/indicators.js"></script>
+    <script type="text/javascript" src="lib/indicators/sma.js"></script>
+    <script type="text/javascript" src="lib/indicators/ema.js"></script>
+    <script type="text/javascript" src="lib/indicators/wma.js"></script>
+    <script type="text/javascript" src="lib/indicators/atr.js"></script>
+    <script type="text/javascript" src="lib/indicators/rsi.js"></script>
+    <script type="text/javascript" src="lib/indicators/macd.js"></script>
+    <script type="text/javascript" src="lib/indicators/bb.js"></script>
+    <script type="text/javascript" src="lib/indicators/stochastic.js"></script> -->
+
+    <script type="text/javascript">
+      /** Default chart formatting **/
+
+      var infront;
+      var chart;
+
+      $(document).ready(function () {
+        infront = new Infront.UI({
+          user_id: "danh",
+          password: "CgGLE413!",
+          baseCurrency: "NOK",
+          routingUrl: "https://mws1.infrontservices.com/mws",
+          secureConnection: Infront.ConnectionSecurity.Require,
+          useDefaultStateStorage: true,
+          language: "no",
+          streaming: true,
+        });
+        infront.registerEventObserver("onReady", _infrontReady);
+        infront.init();
+      });
+
+      function _infrontReady() {
+        let selectedInstruments = [new Infront.Instrument(18177, "DNB")];
+
+        const opts = new Infront.ChartWidgetOptions2();
+        opts.defaultPeriod = "5D";
+        opts.instruments = [new Infront.Instrument(18177, "DNB")];
+        opts.showVolume = true;
+        opts.zoom = true;
+        opts.streaming = true;
+
+        opts.chartUI = {
+          tooltipVersion: "advanced",
+          periodMenu: true,
+          indicatorMenu: true,
+          expandButton: true,
+          chartTypeMenu: true,
+          searchBox: true,
+        };
+        const dropdown = new Infront.DropDownOptions();
+        dropdown.list = [
+          {
+            label: "LOMXS30",
+            instrument: new Infront.Instrument(17921, "OMXS30"),
+          },
+          {
+            label: "OMXSPI",
+            instrument: new Infront.Instrument(17921, "OMXSPI"),
+          },
+          {
+            label: "OSEBX",
+            instrument: new Infront.Instrument(18177, "OSEBX"),
+          },
+          {
+            label: "OMXH25",
+            instrument: new Infront.Instrument(100, "OMXH25"),
+          },
+        ];
+        dropdown.title = dropdown.list[0]["label"];
+        dropdown.selectionUpdatesTitle = true;
+        dropdown.closeOnClick = true;
+        dropdown.multiSelect = true;
+        dropdown.itemLabelPropertyKeys = ["label"];
+        dropdown.onItemClicked = (item) => {
+          if (selectedInstruments.indexOf(item.instrument) > -1) {
+            widget.removeInstrument(item.instrument);
+            selectedInstruments.splice(
+              selectedInstruments.indexOf(item.instrument),
+              1
+            );
+          } else {
+            selectedInstruments.push(item.instrument);
+            widget.addInstrument(item.instrument);
+          }
+        };
+
+        infront.dropDownWidget(
+          "#dropdown",
+          dropdown,
+          new Infront.Language(new Infront.LanguageOptions())
+        );
+        const widget = infront.chartWidget2("#chartwidget", opts);
+
+        window.addEventListener("resize", (ev) => {
+          chart.resizeWidget();
+        });
+      }
+    </script>
+  </head>
+
+  <body class="cell-body">
+    <div class="wt-main-content" style="height: 100%">
+      <div class="cell-wrapper cell-clear">
+        <div class="cell-row">
+          <div class="" id="dropdown"></div>
+        </div>
+        <div class="cell cell--w12">
+          <div class="cell-content cell-clear">
+            <div id="chartwidget" style="height: 500px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

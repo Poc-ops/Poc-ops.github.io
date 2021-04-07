@@ -1,16 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en" style="height: 100%">
   <head>
-    <meta charset="utf-8"/>
-    <title>Stocks</title>
-    <base href="/"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com"/>
-    <style type="text/css">@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu5mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7mxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7WxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu7GxKKTU1Kvnz.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fCRc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fABc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fCBc4AMP6lbBP.woff2) format('woff2');unicode-range:U+1F00-1FFF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0370-03FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fCxc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fChc4AMP6lbBP.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
-    <style type="text/css">@font-face{font-family:'Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v83/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');}.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}</style>
-  <link rel="stylesheet" href="styles.762ed9de2749b3122e10.css"></head>
-  <body>
-    <app-root></app-root>
-  <script src="runtime.7b63b9fd40098a2e8207.js" defer=""></script><script src="polyfills.94daefd414b8355106ab.js" defer=""></script><script src="main.2f64af39e7ce98085071.js" defer=""></script></body>
+    <title>Infront WTK - Chart</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto:light,regular,thin,italic,bold"
+      rel="stylesheet"
+      title="roboto"
+    />
+
+    <!-- Favicons -->
+
+    <!-- Infront WTK CSS -->
+    <link
+      rel="stylesheet"
+      href="InfrontFramework-latest.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="theme.css"
+    />
+
+    <!-- External javascript dependencies -->
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://code.highcharts.com/stock/5.0.14/highstock.src.js"
+    ></script>
+
+    <!-- Infront WTK -->
+    <script type="text/javascript" src="infrontUI-latest.c.js"></script>
+
+    <!---TEMP Chart-Indicator Indicator-scripts-->
+    <!-- <script type="text/javascript" src="lib/indicators/indicators.js"></script>
+    <script type="text/javascript" src="lib/indicators/sma.js"></script>
+    <script type="text/javascript" src="lib/indicators/ema.js"></script>
+    <script type="text/javascript" src="lib/indicators/wma.js"></script>
+    <script type="text/javascript" src="lib/indicators/atr.js"></script>
+    <script type="text/javascript" src="lib/indicators/rsi.js"></script>
+    <script type="text/javascript" src="lib/indicators/macd.js"></script>
+    <script type="text/javascript" src="lib/indicators/bb.js"></script>
+    <script type="text/javascript" src="lib/indicators/stochastic.js"></script> -->
+
+    <script type="text/javascript">
+      /** Default chart formatting **/
+
+      var infront;
+      var chart;
+
+      $(document).ready(function () {
+        infront = new Infront.UI({
+          user_id: "danh",
+          password: "CgGLE413!",
+          baseCurrency: "NOK",
+          routingUrl: "https://mws1.infrontservices.com/mws",
+          secureConnection: Infront.ConnectionSecurity.Require,
+          useDefaultStateStorage: true,
+          language: "no",
+          streaming: true,
+        });
+        infront.registerEventObserver("onReady", _infrontReady);
+        infront.init();
+      });
+
+      function _infrontReady() {
+        let selectedInstruments = [new Infront.Instrument(18177, "DNB")];
+
+        const opts = new Infront.ChartWidgetOptions2();
+        opts.defaultPeriod = "5D";
+        opts.instruments = [new Infront.Instrument(18177, "DNB")];
+        opts.showVolume = true;
+        opts.zoom = true;
+        opts.streaming = true;
+
+        opts.chartUI = {
+          tooltipVersion: "advanced",
+          periodMenu: true,
+          indicatorMenu: true,
+          expandButton: true,
+          chartTypeMenu: true,
+          searchBox: true,
+        };
+        const dropdown = new Infront.DropDownOptions();
+        dropdown.list = [
+          {
+            label: "LOMXS30",
+            instrument: new Infront.Instrument(17921, "OMXS30"),
+          },
+          {
+            label: "OMXSPI",
+            instrument: new Infront.Instrument(17921, "OMXSPI"),
+          },
+          {
+            label: "OSEBX",
+            instrument: new Infront.Instrument(18177, "OSEBX"),
+          },
+          {
+            label: "OMXH25",
+            instrument: new Infront.Instrument(100, "OMXH25"),
+          },
+        ];
+        dropdown.title = dropdown.list[0]["label"];
+        dropdown.selectionUpdatesTitle = true;
+        dropdown.closeOnClick = true;
+        dropdown.multiSelect = true;
+        dropdown.itemLabelPropertyKeys = ["label"];
+        dropdown.onItemClicked = (item) => {
+          if (selectedInstruments.indexOf(item.instrument) > -1) {
+            widget.removeInstrument(item.instrument);
+            selectedInstruments.splice(
+              selectedInstruments.indexOf(item.instrument),
+              1
+            );
+          } else {
+            selectedInstruments.push(item.instrument);
+            widget.addInstrument(item.instrument);
+          }
+        };
+
+        infront.dropDownWidget(
+          "#dropdown",
+          dropdown,
+          new Infront.Language(new Infront.LanguageOptions())
+        );
+        const widget = infront.chartWidget2("#chartwidget", opts);
+
+        window.addEventListener("resize", (ev) => {
+          chart.resizeWidget();
+        });
+      }
+    </script>
+  </head>
+
+  <body class="cell-body">
+    <div class="wt-main-content" style="height: 100%">
+      <div class="cell-wrapper cell-clear">
+        <div class="cell-row">
+          <div class="" id="dropdown"></div>
+        </div>
+        <div class="cell cell--w12">
+          <div class="cell-content cell-clear">
+            <div id="chartwidget" style="height: 500px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
